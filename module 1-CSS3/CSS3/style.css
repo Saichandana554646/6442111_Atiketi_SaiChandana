@@ -1,0 +1,331 @@
+/* =======================================================
+   Task 1: Different Ways to Apply CSS (External CSS)
+========================================================== */
+
+/* Header styles (Inline style applied in HTML for heading color) */
+
+/* Body background (was set using <style> tag in head; now moved here) */
+body {
+  background-color: #f0f8ff; /* light blue background */
+  font-family: Arial, sans-serif;
+}
+
+/* =======================================================
+   Task 2: CSS Syntax and Comments
+========================================================== */
+
+/* Style for main CTA button */
+.cta-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style for general page content */
+.page-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* =======================================================
+   Task 3: Selectors Playground
+========================================================== */
+
+/* Universal Selector - Reset Defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Element Selector - All h2 Headings */
+h2 {
+  font-family: Arial, sans-serif;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+/* ID Selector - Banner Header */
+#mainHeader {
+  background-color: #f39c12;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 2rem;
+}
+
+/* Class Selector - Event Container Cards */
+.eventCard {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Grouping Selector - h3 and p inside cards */
+h3, p {
+  color: #34495e;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* =======================================================
+   Task 4: Color & Background Styling
+========================================================== */
+
+/* Background and fallback color for body */
+body {
+  background-color: #e6f2ff; /* Fallback color - light blue */
+  background-image: url('images/community-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: rgba(20, 20, 20, 0.85); /* Text color with RGBA for readability */
+}
+
+/* HEX color for event card titles */
+.eventCard h3 {
+  color: #1A5276; /* Deep blue (HEX) */
+}
+
+/* Gradient section headers */
+.section-header {
+  background: linear-gradient(to right, #2980b9, #6dd5fa);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* =======================================================
+   Task 5: Typography - Fonts and Text
+========================================================== */
+
+/* Apply the Google Font to the entire site */
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Event descriptions */
+.eventCard p {
+  font-size: 15px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  line-height: 1.8;
+  text-align: justify;
+  color: #444;
+}
+
+/* CTA button styling */
+.cta-button {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* =======================================================
+   Task 6: Link and List Styling
+========================================================== */
+
+/* Default link style */
+a:link {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+/* Hover effect */
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Visited links */
+a:visited {
+  color: #6c757d;
+}
+
+/* Active link state */
+a:active {
+  color: #dc3545;
+}
+
+/* Remove bullets from nav list and make it horizontal */
+.nav-menu {
+  list-style-type: none;
+  list-style-position: inside;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+}
+
+/* Style for individual list items */
+.nav-menu li {
+  margin: 5px 10px;
+  padding: 5px 10px;
+}
+
+/* General list styling */
+ul.custom-list {
+  list-style-type: square;
+  list-style-position: inside;
+  padding-left: 20px;
+}
+
+ol.custom-list {
+  list-style-type: decimal-leading-zero;
+  margin-left: 20px;
+}
+
+/* =======================================================
+   Task 7: Table Styling
+========================================================== */
+
+/* Base table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Header row */
+th {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Data rows */
+td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+/* Zebra striping for better readability */
+tr:nth-child(even) td {
+  background-color: #e9ecef;
+}
+
+/* =======================================================
+   Task 8: Box Model & Layout Control
+========================================================== */
+
+/* Style the event card for proper spacing */
+.eventCard {
+  border: 2px solid #ccc;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+}
+
+/* Add outline to form fields on focus */
+input:focus, textarea:focus {
+  outline: 2px solid #007BFF;
+}
+
+/* Visibility examples */
+.hidden-box {
+  visibility: hidden; /* Takes space but not visible */
+  background-color: #ffc107;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.none-box {
+  display: none; /* Does not take any space */
+  background-color: #dc3545;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* =======================================================
+   Task 9: Multiple Columns in Text
+========================================================== */
+
+.news-section {
+  column-count: 2;
+  column-gap: 30px;
+  column-rule: 1px solid gray;
+  margin: 30px 0;
+  padding: 15px;
+  background-color: #fefefe;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* =======================================================
+   Task 10: Responsive Web Design with Media Queries
+========================================================== */
+
+/* Navigation - Default (Desktop) */
+.main-nav .nav-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  background-color: #333;
+  padding: 10px;
+  margin: 0;
+}
+
+.nav-list li {
+  margin: 0 15px;
+}
+
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Responsive Styles - Mobile (Screen < 768px) */
+@media (max-width: 768px) {
+  .main-nav .nav-list {
+    flex-direction: column; /* Stack vertically */
+    align-items: center;
+  }
+
+  .nav-list li {
+    margin: 10px 0;
+  }
+
+  /* Resize fonts and images */
+  body {
+    font-size: 14px;
+  }
+
+  img {
+    max-width: 90%;
+    height: auto;
+  }
+
+  .eventCard,
+  .news-section {
+    padding: 5vw;
+  }
+
+  h2 {
+    font-size: 5vw;
+  }
+}
