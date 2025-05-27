@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Community Event Portal</title>
+
+  <!-- Link to external CSS (we'll create styles.css soon) -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+  /* Style for welcome banner using ID */
+  #welcomeBanner {
+    background-color: #007BFF; /* Bootstrap-like blue */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  /* Reusable class for visual emphasis */
+  .highlight {
+    background-color: yellow;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+</style>
+
+<script src="script.js"></script>
+
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#events">Events</a>
+    <a href="#contact">Contact</a>
+    <a href="help.html" target="_blank">Help</a>
+    </nav>
+
+    <!-- Welcome Banner -->
+    <div id="welcomeBanner">
+        Welcome back, resident! Enjoy your community benefits.
+        <span style="color: red; font-weight: bold;">Special offer: 20% off event tickets!</span>
+    </div>
+
+
+  <!-- Main -->
+  <main>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Welcome to the Community Event Portal</h1>
+        <p>Find and register for upcoming community events in your area.</p>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events">
+        <h2>Upcoming Events</h2>
+        <p>Check out what’s happening in your <span class="highlight">local neighborhood</span> this month!</p>
+    </section>
+
+    <!-- Event Gallery Section -->
+<section id="gallery">
+  <h2>Past Event Highlights</h2>
+  <table>
+    <tr>
+      <td>
+        <img src="images/event1.jpg" alt="Music Festival" title="Music Festival" class="event-img">
+        <p>Music Festival</p>
+      </td>
+      <td>
+        <img src="images/event2.jpg" alt="Art Workshop" title="Art Workshop" class="event-img">
+        <p>Art Workshop</p>
+      </td>
+      <td>
+        <img src="images/event3.jpg" alt="Food Fair" title="Food Fair" class="event-img">
+        <p>Food Fair</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="images/event4.jpg" alt="Community Run" title="Community Run" class="event-img">
+        <p>Community Run</p>
+      </td>
+      <td>
+        <img src="images/event5.jpg" alt="Book Reading" title="Book Reading" class="event-img">
+        <p>Book Reading</p>
+      </td>
+      <td>
+        <img src="images/event6.jpg" alt="Charity Drive" title="Charity Drive" class="event-img">
+        <p>Charity Drive</p>
+      </td>
+    </tr>
+  </table>
+</section>
+    
+<!-- Event Registration Section -->
+<section id="registration">
+  <h2>Register for an Event</h2>
+  <form id="eventForm" onsubmit="handleSubmit(event)">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" placeholder="Your full name" required autofocus><br><br>
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required><br><br>
+
+    <label for="eventDate">Event Date:</label>
+    <input type="date" id="eventDate" name="eventDate" required><br><br>
+
+    <label for="eventType">Event Type:</label>
+    <select id="eventType" name="eventType" required onchange="saveEventType(this)">
+        <option value="">Select an event</option>
+        <option value="music">Music</option>
+        <option value="sports">Sports</option>
+        <option value="arts">Arts</option>
+    </select>
+
+
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" rows="4" cols="30" placeholder="Anything you'd like to share?"></textarea><br><br>
+
+    <button type="submit">Submit</button>
+    <br><br>
+    <output id="formOutput" name="formOutput"></output>
+  </form>
+<button type="button" onclick="clearPreferences()">Clear Preferences</button>
+
+</section>
+
+<!-- Event Feedback Section -->
+<section id="feedback">
+  <h2>Event Feedback</h2>
+
+  <label for="phone">Phone Number:</label>
+  <input type="text" id="phone" placeholder="1234567890" onblur="validatePhone()"><br><br>
+
+  <label for="eventDropdown">Choose an Event:</label>
+  <select id="eventDropdown" onchange="showFee()">
+    <option value="">--Select--</option>
+    <option value="Music Festival">Music Festival - ₹200</option>
+    <option value="Art Workshop">Art Workshop - ₹150</option>
+    <option value="Community Run">Community Run - ₹100</option>
+  </select>
+  <p id="feeDisplay" class="highlight"></p>
+
+  <br>
+  <button onclick="confirmFeedback()">Submit Feedback</button>
+  <p id="confirmMessage"></p>
+
+  <br><br>
+  <img src="images/event1.jpg" alt="Event" title="Double-click to enlarge" ondblclick="enlargeImage(this)" width="200" id="eventImage">
+
+  <br><br>
+  <label for="feedbackText">Your Feedback:</label><br>
+  <textarea id="feedbackText" rows="4" cols="40" onkeyup="countCharacters()"></textarea>
+  <p><span id="charCount">0</span> characters typed</p>
+</section>
+
+<!-- Video Invite Section -->
+<section id="videoInvite">
+  <h2>Watch Our Promo Video</h2>
+
+  <video id="promoVideo" width="480" controls oncanplay="videoReady()">
+    <source src="media/invite.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <p id="videoStatus" class="highlight"></p>
+</section>
+
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Need help? Reach out to the city council at info@cityportal.com</p>
+  </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 City Council. All rights reserved.</p>
+  </footer>
+
+  <script>
+  function handleSubmit(event) {
+    event.preventDefault();
+    document.getElementById("formOutput").value = "Thank you for registering!";
+  }
+</script>
+
+<script>
+  function validatePhone() {
+    const phone = document.getElementById("phone").value;
+    if (!/^\d{10}$/.test(phone)) {
+      alert("Please enter a valid 10-digit phone number.");
+    }
+  }
+
+  function showFee() {
+    const event = document.getElementById("eventDropdown");
+    const selectedText = event.options[event.selectedIndex].text;
+    document.getElementById("feeDisplay").innerText = "Fee: " + selectedText.split(" - ")[1];
+  }
+
+  function confirmFeedback() {
+    document.getElementById("confirmMessage").innerText = "✅ Feedback submitted. Thank you!";
+  }
+
+  function enlargeImage(img) {
+    if (img.style.width === "400px") {
+      img.style.width = "200px";
+    } else {
+      img.style.width = "400px";
+    }
+  }
+
+  function countCharacters() {
+    const text = document.getElementById("feedbackText").value;
+    document.getElementById("charCount").innerText = text.length;
+  }
+</script>
+
+<script>
+  // Save selected event type to localStorage
+  function saveEventType(selectElement) {
+    localStorage.setItem("preferredEventType", selectElement.value);
+  }
+
+  // Pre-select saved event type on page load
+  window.onload = function () {
+    const savedType = localStorage.getItem("preferredEventType");
+    if (savedType) {
+      const eventTypeSelect = document.getElementById("eventType");
+      if (eventTypeSelect) {
+        eventTypeSelect.value = savedType;
+      }
+    }
+  };
+
+  // Clear all saved preferences
+  function clearPreferences() {
+    localStorage.clear();
+    sessionStorage.clear();
+    alert("Preferences cleared!");
+    location.reload();
+  }
+</script>
+
+<section id="geolocation">
+  <h2>Find Events Near You</h2>
+  <button onclick="findNearbyEvents()">Find Nearby Events</button>
+  <p id="locationOutput">Your location will appear here.</p>
+</section>
+
+</body>
+</html>
